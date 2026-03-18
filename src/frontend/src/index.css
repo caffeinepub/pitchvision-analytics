@@ -1,0 +1,99 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.75rem;
+    /* Dark dashboard palette */
+    --background: 0.148 0.025 243;
+    --foreground: 0.925 0.015 243;
+    --card: 0.168 0.028 243;
+    --card-foreground: 0.925 0.015 243;
+    --popover: 0.168 0.028 243;
+    --popover-foreground: 0.925 0.015 243;
+    --primary: 0.62 0.18 165;
+    --primary-foreground: 0.1 0.01 243;
+    --secondary: 0.22 0.03 243;
+    --secondary-foreground: 0.925 0.015 243;
+    --muted: 0.22 0.03 243;
+    --muted-foreground: 0.58 0.04 243;
+    --accent: 0.62 0.18 165;
+    --accent-foreground: 0.1 0.01 243;
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+    --border: 0.24 0.04 243;
+    --input: 0.24 0.04 243;
+    --ring: 0.62 0.18 165;
+    --chart-1: 0.62 0.18 165;
+    --chart-2: 0.55 0.15 165;
+    --chart-3: 0.48 0.12 165;
+    --chart-4: 0.41 0.09 165;
+    --chart-5: 0.34 0.06 165;
+    --sidebar: 0.138 0.022 243;
+    --sidebar-foreground: 0.925 0.015 243;
+    --sidebar-primary: 0.62 0.18 165;
+    --sidebar-primary-foreground: 0.1 0.01 243;
+    --sidebar-accent: 0.22 0.03 243;
+    --sidebar-accent-foreground: 0.925 0.015 243;
+    --sidebar-border: 0.24 0.04 243;
+    --sidebar-ring: 0.62 0.18 165;
+    /* Teal accent */
+    --teal: 0.62 0.18 165;
+    --teal-bright: 0.72 0.2 165;
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Inter", sans-serif;
+  }
+}
+
+@layer utilities {
+  .teal-text {
+    color: oklch(var(--teal));
+  }
+  .teal-bg {
+    background-color: oklch(var(--teal));
+  }
+  .teal-border {
+    border-color: oklch(var(--teal));
+  }
+
+  .bar-animate {
+    transition: width 0.7s cubic-bezier(0.4, 0, 0.2, 1), height 0.7s
+      cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .fade-in {
+    animation: fadeIn 0.4s ease forwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .card-panel {
+    background: oklch(var(--card));
+    border: 1px solid oklch(var(--border));
+    border-radius: var(--radius);
+    padding: 1.25rem;
+    box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.28);
+  }
+
+  .sidebar-bg {
+    background: oklch(var(--sidebar));
+  }
+}
